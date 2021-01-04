@@ -12,7 +12,7 @@
 
 Level | Concept | Implementation
 
---- | --- | ---
+----- | ------- | --------------
 
 **tier 9** | **Network: streams** | StreamReader, StreamWriter, asyncio.open_connection(), asyncio.start_server()
 tier 8 | Network: TCP & UDP | Protocol
