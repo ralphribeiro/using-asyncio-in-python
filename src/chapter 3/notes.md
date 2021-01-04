@@ -1,4 +1,4 @@
-### just a  small  subset  of  the  whole asyncio API
+### just a small subset of the whole asyncio API
 
 - Starting the asyncio event loop
 - Calling async/await functions
@@ -45,5 +45,9 @@ event loop: You can get by without ever needing to work with the event loop dire
 - *Discouraged* - asyncio.get_event_loop(), callable from anywhere
 
 Tasks and Futures: 
-- a Future represents a future completion stateof some activity and is managed by the loop. A Task is exactly the same, but the specific “activity” is a coroutine, probably one of yours that you created with an async def function plus create_task(). The Future class represents a state of something that is interacting with a loop. That description is too fuzzy to be useful, so you can instead think of a Future instance as a toggle for completion status. When a Future instance is created, the toggle is set to “not  yet  completed,”  but  at  some  later  time  it  will  be  “completed.”  In  fact,  a  Future instance has a method called done() that allows you to check the status, as shown in Example 3-15.
-- Task  instances  are wrappers for coroutine objects, and their result values can be set only internally as theresult of the underlying coroutine function.
+- a Future represents a future completion stateof some activity and is managed by the loop. A Task is exactly the same, but the specific “activity” is a coroutine, probably one of yours that you created with an async def function plus create_task(). The Future class represents a state of something that is interacting with a loop. That description is too fuzzy to be useful, so you can instead think of a Future instance as a toggle for completion status. When a Future instance is created, the toggle is set to “not yet completed,” but at some later time it will be “completed.” In fact, a Future instance has a method called done() that allows you to check the status, as shown in Example 3-15.
+- Task instances are wrappers for coroutine objects, and their result values can be set only internally as the result of the underlying coroutine function.
+
+#### ensure_future():
+- If you pass in a coroutine, it will produce a Task instance (and your coroutine will be scheduled to run on the event loop). This is identical to calling asyncio.create_task() (or loop.create_task()) and returning the new Task instance.
+- If you pass in a Future instance (or a Task instance, because Task is a subclass of Future), you get that very same thing returned, unchanged. Yes, really!
