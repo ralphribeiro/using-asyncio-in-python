@@ -33,3 +33,17 @@ tier 3 | Futures | asyncio.Future
 ----------
 
 The [pysheeet](https://www.pythonsheets.com/notes/python-asyncio.html) site provides an in-depth summary (or “cheat sheet”)of large chunks of the asyncio API; each concept is presented with a short code snippet. The presentation is dense, so I wouldn’t rec‐ommend it for beginners, but if you have experience with Pythonand you’re the kind of person who “gets it” only when new pro‐gramming info is presented in code, this is sure to be a usefulresource.
+
+----------
+
+*await* keyword: This new keyword await always takes a parameter and will accept only a thing called an awaitable, which is defined as one of these (exclusively!):
+- A coroutine
+- Any object implementing the __await__() special method. That special methodmust return an iterator.
+
+event loop: You can get by without ever needing to work with the event loop directly: your asyncio code can be written entirely using await calls, initiated by an asyncio.run(coro)call. However, at times some degree of interaction with the event loop itself might benecessary, and here we’ll discuss how to obtain it. There are two ways:
+- *Recommended* - asyncio.get_running_loop(), callable from inside the context of a coroutine
+- *Discouraged* - asyncio.get_event_loop(), callable from anywhere
+
+Tasks and Futures: 
+- a Future represents a future completion stateof some activity and is managed by the loop. A Task is exactly the same, but the specific “activity” is a coroutine, probably one of yours that you created with an async def function plus create_task(). The Future class represents a state of something that is interacting with a loop. That description is too fuzzy to be useful, so you can instead think of a Future instance as a toggle for completion status. When a Future instance is created, the toggle is set to “not  yet  completed,”  but  at  some  later  time  it  will  be  “completed.”  In  fact,  a  Future instance has a method called done() that allows you to check the status, as shown in Example 3-15.
+- Task  instances  are wrappers for coroutine objects, and their result values can be set only internally as theresult of the underlying coroutine function.
