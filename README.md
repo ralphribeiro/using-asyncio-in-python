@@ -1,4 +1,5 @@
-## examples from the book Using Asyncio in Python
+## examples from the book: Using Asyncio in Python
 
 **Buy the book!**
-["Official page"](https://www.oreilly.com/library/view/using-asyncio-in/9781492075325/)
+----------
+["official page"](https://www.oreilly.com/library/view/using-asyncio-in/9781492075325/)
