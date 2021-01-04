@@ -11,9 +11,7 @@
 ### Features of asyncio arranged in a hierarchy; for end-user developers, the mostimportant tiers are highlighted in bold
 
 Level | Concept | Implementation
-
 ----- | ------- | --------------
-
 **tier 9** | **Network: streams** | StreamReader, StreamWriter, asyncio.open_connection(), asyncio.start_server()
 tier 8 | Network: TCP & UDP | Protocol
 tier 7 | Network: transports | BaseTransport
