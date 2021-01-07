@@ -53,7 +53,7 @@ class OneAtATime:
         # Finally, the entire point of this example, we can get the data from
         # Redis associated with this key. We can await the data, which means
         # that other code can run on the event loop while we wait on network I/O.
-        value = await redis.get(k)
+        value = await self.redis.get(k)
         return value
 
 
