@@ -47,7 +47,7 @@ group = asyncio.gather(*pending, return_exceptions=True)
 loop.run_until_complete(group)
 
 # loop.close() is usually the final action: it must be called on a stopped
-# loop, andit will clear all queues and shut down the executor. A stopped
+# loop, and it will clear all queues and shut down the executor. A stopped
 # loop can be restarted, but a closed loop is gone for good. Internally,
 # asyncio.run() will close the loop before returning. This is fine because
 # run() creates a new event loop everytime you call it.

@@ -18,7 +18,7 @@ async def main(args):
     # According to our protocol rules, the first thing to do after connecting
     # to the server is to give the name of the channel to subscribe to;
     # however, since we are a sender, we don’t really care about subscribing
-    # to any channels. Nevertheless, theprotocol requires it, so just provide
+    # to any channels. Nevertheless, the protocol requires it, so just provide
     # a null channel to subscribe to (we won’t actually listen for anything).
     channel = b'/null'
     # Send the channel to subscribe to.
